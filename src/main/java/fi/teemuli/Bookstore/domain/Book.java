@@ -1,9 +1,32 @@
 package fi.teemuli.Bookstore.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
-	String title, author, isbn;
-	int year;
-	double price;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO) //These are to autogenerate ID byt database
+	private long id;
+	
+	private String title, author, isbn;
+	private int year;
+	private double price;
+	
+	public Book() {
+		
+	}
+	
+	public Book(String title, String author, String isbn, int year) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.isbn = isbn;
+		this.year = year;
+	}
 	
 	public Book(String title, String author, String isbn, int year, double price) {
 		super();
@@ -12,6 +35,14 @@ public class Book {
 		this.isbn = isbn;
 		this.year = year;
 		this.price = price;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -56,8 +87,8 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year + ", price=" + price
-				+ "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year
+				+ ", price=" + price + "]";
 	}
 	
 }
