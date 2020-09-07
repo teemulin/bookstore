@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fi.teemuli.Bookstore.domain.Book;
 import fi.teemuli.Bookstore.domain.BookRepository;
+import fi.teemuli.Bookstore.domain.CategoryRepository;
 
 @Controller
 public class BookController {
@@ -16,6 +17,9 @@ public class BookController {
 	//This is to inject CRUD functionality from BookRepository to Controller here
 	@Autowired
 	private BookRepository repository;
+	
+	@Autowired
+	private CategoryRepository crepository;
 	
 	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public String indexGreeting() {
@@ -33,6 +37,7 @@ public class BookController {
 	@RequestMapping(value = "/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
+		model.addAttribute("categories", crepository.findAll());
 		return "addbook";
 	}
 	
@@ -54,6 +59,7 @@ public class BookController {
 	@RequestMapping(value = "/edit/{id}")
 	public String editBook(@PathVariable("id") Long bookID, Model model) {
 		model.addAttribute("book", repository.findById(bookID));
+		model.addAttribute("categories", crepository.findAll());
 		return "editbook";
 	}
 
