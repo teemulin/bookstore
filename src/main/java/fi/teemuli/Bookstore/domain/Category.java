@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 public class Category {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO) //These are to autogenerate ID byt database
-	private long categoryid;
+	@GeneratedValue(strategy=GenerationType.AUTO) //These are to auto-generate ID but database
+	private Long categoryid;
 	
 	private String name;
 	
@@ -30,11 +30,11 @@ public class Category {
 		this.name = name;
 	}
 
-	public long getCategoryid() {
+	public Long getCategoryid() {
 		return categoryid;
 	}
 
-	public void setCategoryid(long categoryid) {
+	public void setCategoryid(Long categoryid) {
 		this.categoryid = categoryid;
 	}
 

@@ -12,7 +12,7 @@ public class Book {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO) //These are to autogenerate ID byt database
-	private long id;
+	private Long id;
 	
 	private String title, author, isbn;
 	private int year;
@@ -35,20 +35,21 @@ public class Book {
 		this.category = category;
 	}
 	
-	public Book(String title, String author, String isbn, int year, double price) {
+	public Book(String title, String author, String isbn, int year, double price, Category category) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.isbn = isbn;
 		this.year = year;
 		this.price = price;
+		this.category = category;
 	}
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -102,8 +103,12 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year
-				+ ", price=" + price + "]";
+		if(this.category != null)
+			return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year
+					+ ", category =" + this.getCategory() + "]";
+		else
+			return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year
+				+ "]";
 	}
 	
 }

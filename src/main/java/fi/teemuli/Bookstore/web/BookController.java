@@ -27,7 +27,7 @@ public class BookController {
 	}
 	
 	//Listing functionality
-	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
+	@RequestMapping(value = {"/booklist"}, method = RequestMethod.GET)
 	public String bookList(Model model) {
 		model.addAttribute("books", repository.findAll());
 		return "booklist";
@@ -56,7 +56,7 @@ public class BookController {
 	}
 	
 	//Edit functionality
-	@RequestMapping(value = "/edit/{id}")
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String editBook(@PathVariable("id") Long bookID, Model model) {
 		model.addAttribute("book", repository.findById(bookID));
 		model.addAttribute("categories", crepository.findAll());
