@@ -31,8 +31,8 @@ public class BookstoreApplication {
 			brepository.save(new Book("Animal Farm", "George Orwell", "2212343-5", 1945, crepository.findByName("Horror").get(0)));
 		
 			//Create users admin/admin & user/user
-			User user1 = new User ("user", "$2a$10$UKdbL5/cAu3W1E30eADxSecidgCryS5iSfsVGDZjyQqXJNr/3sqZW", "USER" );
-			User user2 = new User ("admin", "$2a$10$0WIE5J9N/Q0MUlO304TP1ORavtU3Yt2Z33pTXQFQqD9XjhbZmTFcC", "ADMIN");
+			User user1 = new User ("user", "user@example.com", "$2a$10$UKdbL5/cAu3W1E30eADxSecidgCryS5iSfsVGDZjyQqXJNr/3sqZW", "USER" );
+			User user2 = new User ("admin", "admin@example.com", "$2a$10$0WIE5J9N/Q0MUlO304TP1ORavtU3Yt2Z33pTXQFQqD9XjhbZmTFcC", "ADMIN");
 			urepository.save(user1);
 			urepository.save(user2);
 		};
