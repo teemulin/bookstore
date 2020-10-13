@@ -18,10 +18,11 @@
  			</div>
  			
  			<form th:action="@{/login}" method="post">
- 				<div><label>User Name: <input type="text" name="username" /></label></div>
- 				<div><label>Password: <input type="text" name="password" /></label></div>
+ 				<div><label>User Name: <input type="text" name="username" class="form-control"/></label></div>
+ 				<div><label>Password: <input type="text" name="password" class="form-control"/></label></div>
  				<div><input type="submit" value="Sing in" class="btn btn-primary"/></div>
  			</form>
+ 			<a th:href="@{/signup}">Sign-up</a>
  		</div>
  	</body>
  
